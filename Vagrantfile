@@ -6,6 +6,7 @@ Vagrant::Config.run do |config|
         one_config.vm.box = "precise64"
         one_config.vm.box_url = "http://files.vagrantup.com/precise64.box"
         one_config.vm.network :hostonly, "192.168.2.11"
+        one_config.vm.share_folder "webmachine", "/home/vagrant/webmachine", "webmachine", :create => true
         one_config.vm.provision :puppet do |puppet|
             puppet.manifests_path = "manifests"
             puppet.manifest_file = "one.pp"
